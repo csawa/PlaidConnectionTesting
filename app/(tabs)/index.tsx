@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+/*import { Image, StyleSheet, Platform } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -16,7 +16,7 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <ThemedText type="title">Helooooo!</ThemedText>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
@@ -72,3 +72,50 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
 });
+*/
+
+import { StyleSheet, Text, View, TouchableOpacity, Button } from "react-native";
+import { useRouter , } from "expo-router";  // Import useRouter from expo-router
+
+export default function HomeScreen() {
+  const router = useRouter();  // Initialize router for navigation
+
+
+  return (
+    <View style={styles.container}>  
+      <Text style={styles.text}>Index!</Text>
+
+      <TouchableOpacity style={styles.button_container} onPress={() =>{router.push("/(auth)/linkToken");}}>
+        <Text style={styles.button_text}>SignUp</Text>
+      </TouchableOpacity> 
+
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 20,
+    backgroundColor: "#F2F2F2",
+  },
+  button_text: {
+    textAlign: "center",
+    fontSize: 18,
+    color: "#fff",
+  },
+  button_container: {
+    borderRadius: 10,
+    padding: 12,
+    margin: 16,
+    justifyContent: "center",
+    backgroundColor: "#1DB954",
+  },
+  text: {
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 24,
+  },
+});
+
